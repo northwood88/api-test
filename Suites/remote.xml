@@ -1,0 +1,46 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Niktest Remote" verbose="1" parallel="methods" thread-count="5" data-provider-thread-count="5">
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+        <listener class-name="com.ea.vx.core.listeners.VxXMLReporter" />
+        <listener class-name="com.ea.vx.core.listeners.VxMethodInitListener" />
+        <listener class-name="com.ea.vx.core.listeners.VxTestListener" />
+        <listener class-name="com.ea.vx.webui.listeners.VxWebUIInitListener" />
+        <listener class-name="com.ea.vx.webui.listeners.VxWebUITestListener" />
+    </listeners>
+
+    <!-- Suite Parameters -->
+    <parameter name="logLevel" value="2" />
+    <parameter name="defaultDriverTimeout" value="10" />
+
+    <parameter name="browserName" value="chrome" />
+    <parameter name="browserPlatform" value="windows" />
+
+    <parameter name="hub" value="remote" />
+    <parameter name="hubHost" value="eac-gavitron.eac.ad.ea.com" />
+    <parameter name="hubPort" value="4446" />
+
+    <parameter name="home_url" value="http://www.wea.com" />
+
+    <!-- Test Execution Scope -->
+    <test name="Viu Browser Tests">
+        <packages>
+            <package name="com.ea.niktest.generated.ui.tests.*" />
+            <package name="com.ea.niktest.generated.api.tests.*" />
+        </packages>
+    </test>
+
+    <test name="SET Browser Tests">
+        <packages>
+            <package name="com.ea.niktest.ui.tests.*" />
+            <package name="com.ea.niktest.api.tests.*" />
+        </packages>
+    </test>
+
+    <!-- Jenkins CI UI -->
+    <parameter name="asdasd" value="http://www.wea.com" />
+
+</suite>
